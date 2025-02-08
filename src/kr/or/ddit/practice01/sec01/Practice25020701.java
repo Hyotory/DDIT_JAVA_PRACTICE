@@ -19,14 +19,90 @@ public class Practice25020701 {
 //		method05();	//30분 전의 시간 출력			
 //		method06();	//시계만들기
 //		method07();	//더 큰 수 출력
-		method08();	//
+//		method08();	//
+		method09();	//
+		
+		
+	}
+	
+	public void method09() {	
+		// 점수를 입력하고 학점을 출력하세요.
+		// 끝자리가 0~2 : -
+		// 		  3~6 : 0
+		//		  7~9 : +
+		// 70 C 60 D 50 F
+		//	88 -> B+
+		// 100 -> A+
+		
+		System.out.println("점수를 입력하세요.");
+		int score = sc.nextInt();
+		String grade = "";
+		
+		if(score == 100) {
+			grade = "A+";
+		}
+		else if(score >= 90) {
+			grade = "A";
+		}
+		else if(score >= 80) {
+			grade = "B";
+		}
+		else if(score >= 70) {
+			grade = "C";
+		}
+		else if(score >= 60) {
+			grade = "D";
+		}
+		else {
+			grade = "F";
+		}
+		if(score < 100) {
+			if(score % 10 >= 0 && score % 10 <= 2) {
+				grade += "-";
+				System.out.println(grade);
+			}
+			
+			else if(score % 10 >= 3 && score % 10 <= 6) {
+				grade += "0";
+				System.out.println(grade);
+			}
+			
+			else if(score % 10 >= 7 && score % 10 <= 9) {
+				grade += "+";
+				
+			}
+		}
+		
+		System.out.println(grade);
 		
 		
 	}
 	public void method08() {
 		// 숫자 a, b중 큰 숫자부터 출력하기
+		// 빈 병에 옮겨두기
+		System.out.println("수를 하나 입력하세요.");
+		int a = sc.nextInt();
+		System.out.println("수를 하나 더 입력하세요.");
+		int b = sc.nextInt();
 		
-		
+		// a부터 출력할 건데, b가 큰 경우
+		// a=3, b=7을 입력한 경우
+		if(a < b) {
+			
+			// 잘못된 SWAP
+//			int temp = b;
+//			b = a;
+//			a = temp;
+			
+			// 정상적인 SWAP
+			// 덮어쓸 값을 먼저 temp에 담기
+			int temp = a;
+			a = b;
+			b = temp;			
+				
+				System.out.println(a + "이(가) " + b +"보다 큼");
+		}
+				
 		
 	}
 	
