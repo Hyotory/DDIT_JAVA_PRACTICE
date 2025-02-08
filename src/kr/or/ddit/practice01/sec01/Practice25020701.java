@@ -24,7 +24,7 @@ public class Practice25020701 {
 		
 	}
 	public void method08() {
-		
+		// 숫자 a, b중 큰 숫자부터 출력하기
 		
 		
 		
