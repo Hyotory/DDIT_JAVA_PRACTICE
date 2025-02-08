@@ -15,9 +15,123 @@ public class Practice25020701 {
 //		method01(); //else if 활용
 //		method02();	//if 조건절 안에 논리연산자(&&, ||) 활용	
 //		method03();	//02번의 연장선
-		method04();	//		
+//		method04();	//30분 뒤의 시간 출력		
+//		method05();	//30분 전의 시간 출력			
+//		method06();	//시계만들기
+//		method07();	//더 큰 수 출력
+		method08();	//
+		
+		
+	}
+	public void method08() {
+		
+		
+		
+		
 	}
 	
+	public void method07() {
+		// 숫자 a, b 중 큰 수를 출력하세요.
+		
+		System.out.println("숫자를 하나 입력하세요.");
+		int num1 = sc.nextInt();
+		System.out.println("숫자를 하나 더 입력하세요.");
+		int num2 = sc.nextInt();
+		
+		if(num1 > num2) {
+			System.out.println(num1 + "(이)가 더 큰 수입니다.");
+		}
+		else {
+			System.out.println(num2  + "(이)가 더 큰 수입니다.");
+		}
+	}
+	
+	
+	public void method06() {
+		//시계만들기
+		int hour = 0;
+		int min  = 0;
+		int sec  = 0;
+		
+		while(true) {
+			sec++;
+			
+			// 반복 속도 조절 (1ms 동안 멈춤)
+			try {
+				Thread.sleep(1); 
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace(); // 예외 발생 시 오류 메시지 출력
+			}
+			
+			// 분 -> 시간 변환
+			if(min == 60) {
+				min = 0;
+				hour ++;
+			}
+			// 초 -> 분 변환
+			if(sec == 60) {
+				sec = 0;
+				min ++;
+			}
+			// 24시간 표기법 유지
+			hour %= 24;
+			
+			System.out.println(hour + ":" + min + ":" + sec);
+		}
+		
+		
+		
+		
+	}
+	
+	
+	public void method05() {
+		// 시, 분을 입력 받고 30분 전의 시간을 출력하세요.
+		System.out.println("시 : ");
+		int hour = sc.nextInt();
+
+		System.out.println("분 : ");
+		int min = sc.nextInt();
+		
+		min -= 30;
+		
+		/*
+		// 12시간 표기법
+		// 2시 30분 -> 2시 00분
+		// 2시 20분 -> 1시 50분
+	  if(min < 30) -> //min이 0 이상일 경우에는 아무것도 하지 않아야 한다.
+		if(min < 0) { // 이게 더 명확한 표현임
+			hour--;
+			min += 60;
+		}
+		// 1시 20분 -> 12시 50분
+		if(hour <= 1) { //이것도 마찬가지. 2시 20분인 경우 13시 50분이 될 수 있음
+		if(hour < 0) {
+			hour += 12;
+		}
+			System.out.println(hour + " : " + min);
+		*/
+		
+		// 24시간 표기법
+		// 13시 20분 -> 12시 50분 
+		
+		if(min < 0) {
+			hour--;
+			min += 60;
+		}
+//		if(hour > 24) { 25시 20분을 입력하면 24시 50분이 되는 문제 발생
+//			hour -= 24;
+//		}
+		// 모듈러(Modulus, %) 연산자 활용 변수 초기화
+		hour %= 24; // 25시를 입력하면 첫번째 if문에서 24시가 되고, 24를 나눈 나머지 0을 hour에 저장
+		System.out.println(hour + " : " + min);
+		
+	}
+			
+			
+			
+			
 	public void method04() {
 		// 시, 분을 입력 받고 30분 뒤에 시간을 출력하세요.
 
@@ -48,7 +162,7 @@ public class Practice25020701 {
 		// 14시 30분 -> 15시 00분
 		// 23시 40분 -> 00시 10분
 		if(min >= 60) { // 분이 60분 이상이면 시간을 1증가, 분을 60감소
-			hour ++;
+			hour++;
 			min -= 60;
 		}
 		
